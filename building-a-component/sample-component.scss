@@ -1,6 +1,6 @@
 /*============================================================================
   Sample component
-    * This is a sample component to demonstrate the structure
+    * This is a sample component to help demonstrate the structure
     and naming conventions to use when building a new component
 ==============================================================================*/
 
@@ -30,7 +30,7 @@ $sample-component-large-breakpoint: 800px;
 .sample-component__section {
   flex: 1 1 $sample-component-flex-basis;
 
-  @include sample-component-breakpoint-large {
+  @include sample-component-large {
     padding: 0;
   }
 }

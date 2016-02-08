@@ -1,6 +1,5 @@
 # Building a component
 
-
 ## Table of contents
 * [Basic conventions](#basic-conventions)
 * [CSM](#csm)
@@ -17,7 +16,7 @@
 
 ## Basic conventions
 Components should be named and created based on their primary function or use.
-This repository includes a [sample component](_sample-component.scss) to use as a reference when building out a new component.
+This repository includes a [sample SCSS component](sample-component.scss) to use as a reference when building out a new component.
 
 ## CSM
 
@@ -249,7 +248,7 @@ It is best to avoid contextual styles (high-level components "reaching into" oth
 
 
 ## Functional variables
-All variables used in a component should be functional instead of just visual. Functional variables can only refer to a visual variable.
+All variables used in a component should be functional instead of just visual. Functional variables should only refer to a visual variable.
 
 
 ```scss
@@ -296,5 +295,3 @@ Dedicated subcomponents should be used for layout and separate from other visual
   color: $black;
 }
 ```
-
-Continue on to [CSS best practices →](../css-best-practices#css-best-practices)
