@@ -8,7 +8,7 @@
   * [Typography](#typography)
 
 ## Why mixins?
-Mixins provide a handy way for a new component to inherit styles from the design system. For example, rather than applying multiple properties and values in our SCSS, we can simply include a mixin like `@include body-text`.
+Mixins provide a handy way for a component to inherit styles from the design system. For example, rather than applying multiple properties and values in our SCSS, we can simply include a mixin like `@include body-text`.
 
 ```scss
 // Good!

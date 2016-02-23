@@ -36,13 +36,13 @@ Our convention (which we call CSM or Component, Sub-Component, Modifier) uses [B
 
 `.blog` This is a [component](#components). It describes a high-level module. In this instance, it describes the container for all of our blog posts.
 
-`.blog__title` This is a [sub-component](#sub-components). It's always a child of a component. In this instance, it is a title for our blog post container
+`.blog__title` This is a [sub-component](#sub-components). It’s always a child of a component. In this instance, it is a title for our blog post container
 
 `.blog-post` This is another component. This one describes a specific blog post. We make this its own component because a blog post is not necessarily a child of the blog container. It can and should be able to live independently. When a component or modifier requires more than one word to describe its purpose, a single hyphen is used as a substitute for spaces.
 
 `.blog-post--featured` This is a [modifier](#modifiers). It is always chained to a component or sub-component. In this instance, it describes a different way of displaying a component.
 
-`.blog-post__time` Like before, this is another sub-component. This time it belongs to the blog-post. It's still a subcomponent even though it is not a direct child of the component.
+`.blog-post__time` Like before, this is another sub-component. This time it belongs to the blog-post. It’s still a subcomponent even though it is not a direct child of the component.
 
 ### Components
 
@@ -73,7 +73,7 @@ Just like components, these should always live at the root level of a file. Do n
 
 // Bad!
 //
-// Note how .blog-post__title is nested inside it's parent class
+// Note how .blog-post__title is nested inside it’s parent class
 .blog-post {
   .blog-post__title {
   }
@@ -87,7 +87,7 @@ These are used to modify components or subcomponents. They use `--` to signify t
 ```scss
 // Good!
 //
-// Note how .blog-post--featured is a selector all by itself?
+// Note how .blog-post--featured is a selector all by itself
 .blog-post--featured {
 }
 

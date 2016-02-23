@@ -11,8 +11,7 @@ This document outlines the way our team is expected to write their SCSS. Followi
 
 * [Sass](http://sass-lang.com/) is our preprocessor of choice
 * [PostCSS](https://github.com/postcss/postcss) for its [Autoprefixer](https://github.com/postcss/autoprefixer) plugin
-* [SCSS-Lint](https://github.com/causes/scss-lint) is our preferred linter for `SCSS`. See our custom linting rules are found [here](https://github.com/Shopify/markup-and-styling-style-guide/blob/master/.scss-lint.yml))
-
+* [SCSS-Lint](https://github.com/causes/scss-lint) is our preferred linter for `SCSS`. See our custom linting rules [here](https://github.com/Shopify/markup-and-styling-style-guide/blob/master/.scss-lint.yml))
 
 ## Philosophy & structure
 
@@ -35,12 +34,9 @@ Our separation of concerns is reflected by our style directory structure as foll
     /global
     print.scss
     style.scss
-  /ui-kit
-    /components
-    /foundation
-    /global
-    ui-kit.scss
 ```
+
+As much as possible, we should be avoiding adding new styles to the areas section. This is where specific overrides for a give page or area live. We prefer to create components that will work wherever they are put. This helps keep our design system consistent, and avoid unique snowflakes.
 
 For more specific information on our markup and CSS code styles see our (Markup and Styling Style Guide)[https://github.com/Shopify/markup-and-styling-style-guide].
 
