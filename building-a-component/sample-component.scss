@@ -1,0 +1,36 @@
+/*============================================================================
+  Sample component
+    * This is a sample component to help demonstrate the structure
+    and naming conventions to use when building a new component
+==============================================================================*/
+
+/*================ Variables ================*/
+$sample-component-flex-basis: 100px;
+$sample-component-large-breakpoint: 800px;
+
+
+/*================ Mixins ================*/
+@mixin sample-component-breakpoint-large {
+  @media only screen and (min-width: $sample-component-large-breakpoint) {
+    @content;
+  }
+}
+
+/*================ Base component ================*/
+.sample-component {
+  display: flex;
+}
+
+/*================ Variants / modifiers ================*/
+.sample-component--featured {
+  border-style: solid;
+}
+
+/*================ Sub components ================*/
+.sample-component__section {
+  flex: 1 1 $sample-component-flex-basis;
+
+  @include sample-component-large {
+    padding: 0;
+  }
+}
