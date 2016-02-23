@@ -24,20 +24,6 @@ These guidelines are a summary of our base principles: Our code bases should all
 * Page specific only as a last resort
 * Written with nesting (preferably) no deeper than 2 levels
 
-Our separation of concerns is reflected by our style directory structure as follows:
-
-```
-/stylesheets
-  /admin
-    /areas
-    /components
-    /global
-    print.scss
-    style.scss
-```
-
-As much as possible, we should be avoiding adding new styles to the areas section. This is where specific overrides for a give page or area live. We prefer to create components that will work wherever they are put. This helps keep our design system consistent, and avoid unique snowflakes.
-
 For more specific information on our markup and CSS code styles see our (Markup and Styling Style Guide)[https://github.com/Shopify/markup-and-styling-style-guide].
 
 It is also a good idea to read up on [SMACSS](http://smacss.com/) and [BEM](https://en.bem.info/method/key-concepts/) if you are not already familiar with them.
