@@ -23,15 +23,15 @@ Our convention (which we call CSM or Component, Sub-Component, Modifier) uses [B
 > BEM stands for Block, Element, Modifier. Because Block and Element already have meaning in CSS, we use the terms Component and Subcomponent instead.
 
 ```html
-<div class="blog">
+<main class="blog">
   <h1 class="blog__title">Blog title</h1>
-  <div class="blog-post blog-post--featured">
+  <article class="blog-post blog-post--featured">
     <h2 class="blog-post__title">Blog post title</h2>
     <div class="blog-post__date">
       <p class="blog-post__time">12:03pm</p>
     </div>
-  </div>
-</div>
+  </article>
+</main>
 ```
 
 `.blog` This is a [component](#components). It describes a high-level module. In this instance, it describes the container for all of our blog posts.
@@ -40,7 +40,7 @@ Our convention (which we call CSM or Component, Sub-Component, Modifier) uses [B
 
 `.blog-post` This is another component. This one describes a specific blog post. We make this its own component because a blog post is not necessarily a child of the blog container. It can and should be able to live independently. When a component or modifier requires more than one word to describe its purpose, a single hyphen is used as a substitute for spaces.
 
-`.blog-post--featured` This is a [modifier](#modifiers). It is always chained to a component or sub-component. In this instance, it describes a different way of displaying a component.
+`.blog-post--featured` This is a [modifier](#modifiers). It is added on to the base name of the component or sub-component. In this instance, it describes a different way of displaying a component.
 
 `.blog-post__time` Like before, this is another sub-component. This time it belongs to the blog-post. It’s still a subcomponent even though it is not a direct child of the component.
 
@@ -105,12 +105,12 @@ These are used to modify components or subcomponents. They use `--` to signify t
 Sometimes a component modifier will affect its sub-components. There are several methods you can use to accomplish this. As much as possible, stick to one method.
 
 ```html
-<div class="blog-post blog-post--featured">
+<article class="blog-post blog-post--featured">
   <h2 class="blog-post__title">Blog post title</h2>
   <div class="blog-post__date">
     <p class="blog-post__time">12:03pm</p>
   </div>
-</div>
+</article>
 ```
 
 
@@ -219,24 +219,24 @@ If either of these conditions are true, it is probably better to split it into i
 It is best to avoid contextual styles (high-level components "reaching into" other high-level components) — use modifiers instead.
 
 ```scss
-.home-page {
+.banner {
   // ...some styles...
 }
 
-.blog-post {
+.blog-post--featured {
   // ...some styles...
 }
 
 // Good!
 //
-.blog-post--home {
+.banner--featured {
   // ...some MORE styles...
 }
 
 // Bad!
 //
-.home-page {
-  .blog-post {
+.blog-post--featured {
+  .banner {
     // ...some MORE styles...
   }
 }

@@ -5,8 +5,8 @@ This repository contains the guidelines for writing CSS and SCSS in the Shopify 
 ## Table of contents
 
 * [Introduction](introduction#introduction)
-  * [Tools & frameworks](introduction#tools--frameworks)
-  * [Philosophy & structure](introduction#philosophy--structure)
+  * [Tools and frameworks](introduction#tools-and-frameworks)
+  * [Philosophy and structure](introduction#philosophy-and-structure)
 * [Building a component](building-a-component)
   * [Basic conventions](building-a-component#basic-conventions)
   * [CSM](building-a-component#csm)
