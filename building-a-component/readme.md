@@ -10,9 +10,7 @@
   * [State](#state)
 * [When to split a component](#when-to-split-a-component)
 * [Contextual styles](#contextual-styles)
-* [Functional variables](#functional-variables)
 * [Layout subcomponents](#layout-subcomponents)
-
 
 ## Basic conventions
 Components should be named and created based on their primary function or use.
@@ -36,15 +34,13 @@ Our convention (which we call CSM or Component, Sub-Component, Modifier) uses [B
 </div>
 ```
 
-If a component or modifier requires more than one word to describe its purpose, a single hyphen is used as a substitute for "spaces". Try to be concise – minimize the need for single hyphens whenever possible without sacrificing comprehension.
+`.blog` This is a [component](#components). It describes a high-level module. In this instance, it describes the container for all of our blog posts.
 
-`.blog` This is a component. It describes a high-level module. In this instance, it describes the container for all of our blog posts.
+`.blog__title` This is a [sub-component](#sub-components). It's always a child of a component. In this instance, it is a title for our blog post container
 
-`.blog__title` This is a sub-component. It's always a child of a component. In this instance, it is a title for our blog post container
+`.blog-post` This is another component. This one describes a specific blog post. We make this its own component because a blog post is not necessarily a child of the blog container. It can and should be able to live independently. When a component or modifier requires more than one word to describe its purpose, a single hyphen is used as a substitute for spaces.
 
-`.blog-post` This is another component. This one describes a specific blog post. We make this its own component because a blog post is not necessarily a child of the blog container. It can and should be able to live independently.
-
-`.blog-post--featured` This is a modifier. It is always chained to a component or sub-component. In this instance, it describes a different way of displaying a component.
+`.blog-post--featured` This is a [modifier](#modifiers). It is always chained to a component or sub-component. In this instance, it describes a different way of displaying a component.
 
 `.blog-post__time` Like before, this is another sub-component. This time it belongs to the blog-post. It's still a subcomponent even though it is not a direct child of the component.
 
@@ -246,33 +242,8 @@ It is best to avoid contextual styles (high-level components "reaching into" oth
 }
 ```
 
-
-## Functional variables
-All variables used in a component should be functional instead of just visual. Functional variables should only refer to a visual variable.
-
-
-```scss
-// Good!
-
-$success-color: $green;
-
-.badge--success {
-  background: $success-color;
-}
-
-// Bad!
-//
-// You should never use a visual variable directly in your component
-$green: #96bf48;
-
-.badge--success {
-  background: $green;
-}
-```
-
-
 ## Layout subcomponents
-Dedicated subcomponents should be used for layout and separate from other visual styles.
+Dedicated subcomponents should be used for layout and separate from other visual styles. This creates a separation of concerns and prevents the visual styles from affecting layouts.
 
 ```scss
 // Good!
@@ -295,3 +266,5 @@ Dedicated subcomponents should be used for layout and separate from other visual
   color: $black;
 }
 ```
+
+Continue on to [Variables, maps, and functions →](../variables-maps-and-functions)

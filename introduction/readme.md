@@ -1,15 +1,11 @@
 # Introduction
 
-This document outlines the way our team is expected to write their CSS. Following this document ensures that everyone is writing markup that feels familiar and can be maintained by anyone with little overhead.
-
-We follow a mixture of various methodologies including, but not limited to: SMACSS' separation of concerns, OOCSS' modularity, Topcoat's coding guidelines, BEM naming conventions, and others.
-
+This document outlines the way our team is expected to write their SCSS. Following this document ensures that everyone is writing markup and styling that feels familiar and can be maintained by anyone with little overhead.
 
 ## Table of contents
 
 * [Tools & frameworks](#tools--frameworks)
 * [Philosophy & structure](#philosophy--structure)
-
 
 ## Tools & frameworks
 
@@ -20,7 +16,7 @@ We follow a mixture of various methodologies including, but not limited to: SMAC
 
 ## Philosophy & structure
 
-We strive to write modular, component driven CSS with a clear separation of concerns, structured so they are reuseable and easy to find. In the end, our code should be easy to maintain by anyone – even for new people entering a project.
+We strive to write modular, component driven CSS with a clear separation of concerns, structured so they are reusable and easy to find. In the end, our code should be easy to maintain by anyone – even for new people entering a project.
 
 These guidelines are a summary of our base principles: Our code bases should all be:
 
@@ -36,14 +32,18 @@ Our separation of concerns is reflected by our style directory structure as foll
   /admin
     /areas
     /components
-    /foundation
     /global
     print.scss
     style.scss
+  /ui-kit
+    /components
+    /foundation
+    /global
+    ui-kit.scss
 ```
 
-> You may notice the heavy influence of methodologies like [SMACSS](http://smacss.com/) and [OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/).
->
-> Familiarity with these concepts is crucial! If you are not, then we urge that you at least learn the basics: [Jonathan Snook's "CSS is a Mess"](http://vimeo.com/99877232) and [Andy Hume's "CSS For Grown Ups"](http://lanyrd.com/2012/sxsw-interactive/spmqc/) is a good place to start.
+For more specific information on our markup and CSS code styles see our (Markup and Styling Style Guide)[https://github.com/Shopify/markup-and-styling-style-guide].
+
+It is also a good idea to read up on [SMACSS](http://smacss.com/) and [BEM](https://en.bem.info/method/key-concepts/) if you are not already familiar with them.
 
 Continue on to [Building a component →](../building-a-component)
