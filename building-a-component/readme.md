@@ -265,7 +265,7 @@ Dedicated sub-components should be used for layout and separate from other visua
 }
 ```
 
-## Using media-queries
+## Using media queries
 
 ```scss
 // Bad!
