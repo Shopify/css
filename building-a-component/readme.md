@@ -101,7 +101,7 @@ These are used to create a new variation of a components or sub-component. They 
 }
 ```
 
-### Component variation that affect sub-components
+### Component variations that affect sub-components
 
 Sometimes a component variation will affect its sub-components. To do this we place all the selectors for the variation in one place. This makes it easier to see all the styles a variation is effecting.
 
