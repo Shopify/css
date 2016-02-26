@@ -2,25 +2,26 @@
 
 ## Table of contents
 * [Basic conventions](#basic-conventions)
-* [CSM](#csm)
+* [CSV](#csv)
   * [Components](#components)
   * [Sub-components](#sub-components)
-  * [Modifiers](#modifiers)
-  * [Component modifiers that affect subcomponents](#component-modifiers-that-affect-subcomponents)
+  * [Variations](#variations)
+  * [Component variations that affect subcomponents](#component-variations-that-affect-subcomponents)
   * [State](#state)
 * [When to split a component](#when-to-split-a-component)
 * [Contextual styles](#contextual-styles)
 * [Layout subcomponents](#layout-subcomponents)
+* [Using media queries](#using-media-queries)
 
 ## Basic conventions
-Components should be named and created based on their primary function or use.
-This repository includes a [sample SCSS component](sample-component.scss) to use as a reference when building out a new component.
+Components should be named based on their primary function.
+This repository includes a [sample Sass component](sample-component.scss) to use as a reference when building out a new component.
 
-## CSM
+## CSV
 
-Our convention (which we call CSM or Component, Sub-Component, Modifier) uses [BEM principles](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) to denote types of classes while still maintaining full use of the cascade.
+Our convention (which we call CSV or Component, Sub-Component, Variation) uses [BEM principles](https://en.bem.info/method/key-concepts/) to denote types of classes while still maintaining full use of the cascade.
 
-> BEM stands for Block, Element, Modifier. Because Block and Element already have meaning in CSS, we use the terms Component and Subcomponent instead.
+> BEM stands for Block, Element, Modifier. Because Block and Element already have meaning in CSS, we use the terms Component, Sub-component instead. We also prefer the term variation to modifier.
 
 ```html
 <main class="blog">
@@ -38,15 +39,15 @@ Our convention (which we call CSM or Component, Sub-Component, Modifier) uses [B
 
 `.blog__title` This is a [sub-component](#sub-components). It’s always a child of a component. In this instance, it is a title for our blog post container
 
-`.blog-post` This is another component. This one describes a specific blog post. We make this its own component because a blog post is not necessarily a child of the blog container. It can and should be able to live independently. When a component or modifier requires more than one word to describe its purpose, a single hyphen is used as a substitute for spaces.
+`.blog-post` This is another component. This one describes a specific blog post. We make this its own component because a blog post is not necessarily a child of the blog container. It can and should be able to live independently. When a component or variation requires more than one word to describe its purpose, a single hyphen is used as a substitute for spaces.
 
-`.blog-post--featured` This is a [modifier](#modifiers). It is added on to the base name of the component or sub-component. In this instance, it describes a different way of displaying a component.
+`.blog-post--featured` This is a [variation](#variations). We combine the name of component `blog-post` with the variation `featured`, separated with double dashes `--`. This describes a different way of displaying a component.
 
-`.blog-post__time` Like before, this is another sub-component. This time it belongs to the blog-post. It’s still a subcomponent even though it is not a direct child of the component.
+`.blog-post__time` Like before, this is another sub-component. This time it belongs to the `blog-post`. It’s still a subcomponent even though it is not a direct child of the component. We prefer this to `blog-post__date__time` to keep the class names simple and easier to read.
 
 ### Components
 
-This is the base of the independent component that you are creating. Components should be able to exist on their own or within other components. They should always live at the root level of a file.
+This is the base of the independent component that you are creating. Components should be able to exist on their own or within other components. They should always live at the root level of a Sass file.
 
 * Single hyphenated naming.
 * Not nested.
@@ -58,19 +59,15 @@ This is the base of the independent component that you are creating. Components 
 
 ### Sub-components
 
-This is a secondary element inside of a component. It is always written as a chain of its parent component to avoid any inheritance issues. Your subcomponents should be named in a way that keeps them from having to have subcomponents of their own. If you find you need to write a subcomponent for a subcomponent, consider breaking the parent out into its own component.
+This is a secondary element inside of a component. We include the root component class in the name to help scope it without adding specificity. Your subcomponents should be named in a way that keeps them from having to have subcomponents of their own. If you find you need to write a subcomponent for a subcomponent, consider breaking the parent out into its own component.
 
-Just like components, these should always live at the root level of a file. Do not nest these within the parent component or another subcomponent. The class name should do all the work necessary.
+You don’t need to nest these within the parent component or another subcomponent. The class name should do all the work necessary. The one exception is when a variation effects a sub-component. We will talk more about this after.
 
 * Prefixed by the parent component and two underscores `component-name__`.
 * Live below the parent component in the root of the file. Not nested.
 * Subcomponents do not have to be direct children of the component in the markup. They can be any descendent.
 
 ```scss
-// Good!
-.blog-post__title {
-}
-
 // Bad!
 //
 // Note how .blog-post__title is nested inside it’s parent class
@@ -78,31 +75,35 @@ Just like components, these should always live at the root level of a file. Do n
   .blog-post__title {
   }
 }
+
+// Good!
+.blog-post__title {
+}
 ```
 
-### Modifiers
+### Variations
 
-These are used to modify components or subcomponents. They use `--` to signify they are modifying the component or subcomponent name that comes before it. You should not need to scope the selector to the component because it is already in the class name.
+These are used to create a new variation of a components or subcomponent. They use `--` to signify they are modifying the component or subcomponent name that comes before it. You should not need to scope the selector to the component because it is already in the class name.
 
 ```scss
+// Bad!
+//
+// Note how we use the parent selector (&) to chain the variation class to .blog-post
+.blog-post {
+  &.blog-post--featured {
+  }
+}
+
 // Good!
 //
 // Note how .blog-post--featured is a selector all by itself
 .blog-post--featured {
 }
-
-// Bad!
-//
-// Note how we use the parent selector (&) to chain the modifier class to .blog-post
-.blog-post {
-  &.blog-post--featured {
-  }
-}
 ```
 
-### Component modifiers that affect subcomponents
+### Component variation that affect subcomponents
 
-Sometimes a component modifier will affect its sub-components. There are several methods you can use to accomplish this. As much as possible, stick to one method.
+Sometimes a component variation will affect its sub-components. To do this we place all the selectors for the variation in one place. This makes it easier to see all the styles a variation is effecting.
 
 ```html
 <article class="blog-post blog-post--featured">
@@ -113,32 +114,31 @@ Sometimes a component modifier will affect its sub-components. There are several
 </article>
 ```
 
-
-#### 1. Styles grouped with modifier
-Nest the `.component__sub-component` elements inside the `.component` SCSS.
-
-This method allows you to quickly update or edit the styles for all elements affected by a modifier.
-
 ```scss
-.blog-post--featured {
+// Bad!
+//
+// You shouldn't declare styles for a component variation in multiple places
+.blog-post__title {
   ...
-
-  .blog-post__title {
+  &.blog-post--featured {
     ...
   }
 }
-```
 
-#### 2. Styles grouped with sub-component
-Nest the modifier code inside the sub-component using `.component--modifier &`.
-
-This method makes it easier to visualize the differences between a sub-component and its modified states.
-
-```scss
-.blog-post__title {
+.blog-post__time {
   ...
+  &.blog-post--featured {
+    ...
+  }
+}
 
-  .blog-post--featured & {
+// Good!
+.blog-post--featured {
+  ...
+  .blog-post__title {
+    ...
+  }
+  .blog-post__time {
     ...
   }
 }
@@ -146,7 +146,7 @@ This method makes it easier to visualize the differences between a sub-component
 
 ### State
 
-When a component or sub-component changes state (in response to a user action or other dynamic behaviour), we often add a class so the state can be styled and made visible to the user. These are almost always added and removed by UI scripts as the user interacts with the page. If a class is being added or removed via JS, chances are it’s a state. Name these state classes similarly to modifiers but with an additional prefix of `is`. Since states will have the same CSS specificity as modifiers, define your states after modifiers in source-order to avoid modifiers accidentally overriding states.
+When a component or sub-component changes state (in response to a user action or other dynamic behaviour), we often add a class so the state can be styled and made visible to the user. These are almost always added and removed by JS as the user interacts with the page. If a class is being added or removed via JS, chances are it’s a state. Name these state classes similarly to variations but with an additional prefix of `is`. Since states will have the same CSS specificity as variations, define your states after variations in source-order to avoid variations accidentally overriding states.
 
 ```html
 <ul class="select">
@@ -160,7 +160,7 @@ When a component or sub-component changes state (in response to a user action or
 .select {}
 
 .select__option {}
-.select__option--tall {} // modifier
+.select__option--tall {} // variation
 
 .select__option--is-selected {} // state
 .select__option--tall.select__option--is-selected {} // state
@@ -178,32 +178,21 @@ An alternative construction using the `has` prefix is reserved for marking a par
 
 ```scss
 .select {}
-.select--large {} // modifier
+.select--large {} // variation
 .select--has-selection {} // state
 ```
 
 ## When to split a component
 There are two basic rules when deciding whether to break a subcomponent into a new top-level component:
   1. Could it be used elsewhere?
-  2. Does it have variations?
+  2. Does it have several variations?
+
 If either of these conditions are true, it is probably better to split it into its own component.
 
 ```scss
-// Good!
-
-.post__title {
-}
-
-.post__title--is-selected {
-}
-
-.post__title--primary {
-}
-
 // Bad!
 //
 // You should never end up with subcomponents of subcomponents like this
-
 .blog__post__title {
 }
 
@@ -212,11 +201,20 @@ If either of these conditions are true, it is probably better to split it into i
 
 .blog__post__title--primary {
 }
+
+// Good!
+.post__title {
+}
+
+.post__title--is-selected {
+}
+
+.post__title--primary {
+}
 ```
 
-
 ## Contextual styles
-It is best to avoid contextual styles (high-level components "reaching into" other high-level components) — use modifiers instead.
+It is best to avoid contextual styles (high-level components "reaching into" other high-level components) — use variations instead.
 
 ```scss
 .banner {
@@ -227,18 +225,18 @@ It is best to avoid contextual styles (high-level components "reaching into" oth
   // ...some styles...
 }
 
-// Good!
-//
-.banner--featured {
-  // ...some MORE styles...
-}
-
 // Bad!
 //
+// You should never target a component inside another component
 .blog-post--featured {
   .banner {
     // ...some MORE styles...
   }
+}
+
+// Good!
+.banner--featured {
+  // ...some MORE styles...
 }
 ```
 
@@ -246,6 +244,16 @@ It is best to avoid contextual styles (high-level components "reaching into" oth
 Dedicated subcomponents should be used for layout and separate from other visual styles. This creates a separation of concerns and prevents the visual styles from affecting layouts.
 
 ```scss
+// Bad!
+//
+// Usually it is best to not use a subcomponent for both layout and visual treatments
+
+.post__title {
+  flex: 1 1 auto;
+  font-size: $font-size-large;
+  color: $black;
+}
+
 // Good!
 .post__header {
   flex: 1 1 auto;
@@ -255,15 +263,32 @@ Dedicated subcomponents should be used for layout and separate from other visual
   font-size: $font-size-large;
   color: $black;
 }
+```
 
+## Using media-queries
+
+```scss
 // Bad!
 //
-// You should never use a subcomponent for both layout and visual treatments
+// Breakpoint should be nested inside the component
 
-.post__title {
-  flex: 1 1 auto;
-  font-size: $font-size-large;
-  color: $black;
+.component {
+  margin: spacing();
+}
+
+@media (min-width: $breakpoint) {
+  .component {
+    margin: 0;
+  }
+}
+
+// Good!
+.component {
+  margin: spacing();
+
+  @media (min-width: $breakpoint) {
+    margin: 0;
+  }
 }
 ```
 
