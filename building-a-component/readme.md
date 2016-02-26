@@ -6,11 +6,11 @@
   * [Components](#components)
   * [Sub-components](#sub-components)
   * [Variations](#variations)
-  * [Component variations that affect subcomponents](#component-variations-that-affect-subcomponents)
+  * [Component variations that affect sub-components](#component-variations-that-affect-sub-components)
   * [State](#state)
 * [When to split a component](#when-to-split-a-component)
 * [Contextual styles](#contextual-styles)
-* [Layout subcomponents](#layout-subcomponents)
+* [Layout sub-components](#layout-sub-components)
 * [Using media queries](#using-media-queries)
 
 ## Basic conventions
@@ -43,7 +43,7 @@ Our convention (which we call CSV or Component, Sub-Component, Variation) uses [
 
 `.blog-post--featured` This is a [variation](#variations). We combine the name of component `blog-post` with the variation `featured`, separated with double dashes `--`. This describes a different way of displaying a component.
 
-`.blog-post__time` Like before, this is another sub-component. This time it belongs to the `blog-post`. It’s still a subcomponent even though it is not a direct child of the component. We prefer this to `blog-post__date__time` to keep the class names simple and easier to read.
+`.blog-post__time` Like before, this is another sub-component. This time it belongs to the `blog-post`. It’s still a sub-component even though it is not a direct child of the component. We prefer this to `blog-post__date__time` to keep the class names simple and easier to read.
 
 ### Components
 
@@ -59,13 +59,13 @@ This is the base of the independent component that you are creating. Components 
 
 ### Sub-components
 
-This is a secondary element inside of a component. We include the root component class in the name to help scope it without adding specificity. Your subcomponents should be named in a way that keeps them from having to have subcomponents of their own. If you find you need to write a subcomponent for a subcomponent, consider breaking the parent out into its own component.
+This is a secondary element inside of a component. We include the root component class in the name to help scope it without adding specificity. Your sub-components should be named in a way that keeps them from having to have sub-components of their own. If you find you need to write a sub-component for a sub-component, consider breaking the parent out into its own component.
 
-You don’t need to nest these within the parent component or another subcomponent. The class name should do all the work necessary. The one exception is when a variation effects a sub-component. We will talk more about this after.
+You don’t need to nest these within the parent component or another sub-component. The class name should do all the work necessary. The one exception is when a variation effects a sub-component. We will talk more about this after.
 
 * Prefixed by the parent component and two underscores `component-name__`.
 * Live below the parent component in the root of the file. Not nested.
-* Subcomponents do not have to be direct children of the component in the markup. They can be any descendent.
+* Sub-components do not have to be direct children of the component in the markup. They can be any descendent.
 
 ```scss
 // Bad!
@@ -83,7 +83,7 @@ You don’t need to nest these within the parent component or another subcompone
 
 ### Variations
 
-These are used to create a new variation of a components or subcomponent. They use `--` to signify they are modifying the component or subcomponent name that comes before it. You should not need to scope the selector to the component because it is already in the class name.
+These are used to create a new variation of a components or sub-component. They use `--` to signify they are modifying the component or sub-component name that comes before it. You should not need to scope the selector to the component because it is already in the class name.
 
 ```scss
 // Bad!
@@ -101,7 +101,7 @@ These are used to create a new variation of a components or subcomponent. They u
 }
 ```
 
-### Component variation that affect subcomponents
+### Component variation that affect sub-components
 
 Sometimes a component variation will affect its sub-components. To do this we place all the selectors for the variation in one place. This makes it easier to see all the styles a variation is effecting.
 
@@ -183,7 +183,7 @@ An alternative construction using the `has` prefix is reserved for marking a par
 ```
 
 ## When to split a component
-There are two basic rules when deciding whether to break a subcomponent into a new top-level component:
+There are two basic rules when deciding whether to break a sub-component into a new top-level component:
   1. Could it be used elsewhere?
   2. Does it have several variations?
 
@@ -192,7 +192,7 @@ If either of these conditions are true, it is probably better to split it into i
 ```scss
 // Bad!
 //
-// You should never end up with subcomponents of subcomponents like this
+// You should never end up with sub-components of sub-components like this
 .blog__post__title {
 }
 
@@ -240,13 +240,13 @@ It is best to avoid contextual styles (high-level components "reaching into" oth
 }
 ```
 
-## Layout subcomponents
-Dedicated subcomponents should be used for layout and separate from other visual styles. This creates a separation of concerns and prevents the visual styles from affecting layouts.
+## Layout sub-components
+Dedicated sub-components should be used for layout and separate from other visual styles. This creates a separation of concerns and prevents the visual styles from affecting layouts.
 
 ```scss
 // Bad!
 //
-// Usually it is best to not use a subcomponent for both layout and visual treatments
+// Usually it is best to not use a sub-component for both layout and visual treatments
 
 .post__title {
   flex: 1 1 auto;
