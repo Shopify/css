@@ -43,4 +43,4 @@ Rather than using global variables, we prefer to use functions to retrieve value
 ## Creating new variables for your component
 Sometimes you will need to create new variables that will be used in a new component you are building. These variables should be included at the top of the SCSS file for the component. The variable name should also be prefixed with the name of the component to help keep it name-spaced. An example can be seen in the [example component](../building-a-component/sample-component.scss) included in this repository.
 
-Continue on to [Inheriting styles with mixins →](../inheriting-styles-with-mixins)
+Continue on to [Using common styles with mixins →](../using-common-styles-with-mixins)

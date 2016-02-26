@@ -21,8 +21,8 @@ This repository contains the guidelines for writing CSS and SCSS in the Shopify 
 * [Variables maps and functions](variables-maps-and-functions)
   * [Conventions](variables-maps-and-functions#conventions)
   * [Creating a new variable for your component](variables-maps-and-functions#creating-a-new-variable-for-your-component)
-* [Inheriting styles with mixins](inheriting-styles-with-mixins)
-  * [Why mixins?](inheriting-styles-with-mixins#why-mixins)
-  * [Creating a new mixin for your component](inheriting-styles-with-mixins#creating-a-new-mixin-for-your-component)
+* [Using common styles with mixins](using-common-styles-with-mixins)
+  * [Why mixins?](using-common-styles-with-mixins#why-mixins)
+  * [Creating a new mixin for your component](using-common-styles-with-mixins#creating-a-new-mixin-for-your-component)
 
 Continue on to [the Introduction →](introduction#introduction)
