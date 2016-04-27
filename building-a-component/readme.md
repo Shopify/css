@@ -120,14 +120,14 @@ Sometimes a component variation will affect its sub-components. To do this we pl
 // You shouldn't declare styles for a component variation in multiple places
 .blog-post__title {
   ...
-  &.blog-post--featured {
+  .blog-post--featured & {
     ...
   }
 }
 
 .blog-post__time {
   ...
-  &.blog-post--featured {
+  .blog-post--featured & {
     ...
   }
 }
