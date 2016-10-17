@@ -1,6 +1,6 @@
-# Admin CSS guide
+# CSS
 
-This repository contains the guidelines for writing CSS and SCSS in the Shopify admin.
+This repository contains the guidelines for writing CSS and SCSS at Shopify.
 
 ## Table of contents
 
