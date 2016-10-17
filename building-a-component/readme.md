@@ -1,7 +1,6 @@
 # Building a component
 
 ## Table of contents
-* [Basic conventions](#basic-conventions)
 * [CSV](#csv)
   * [Components](#components)
   * [Sub-components](#sub-components)
@@ -13,13 +12,9 @@
 * [Layout sub-components](#layout-sub-components)
 * [Using media queries](#using-media-queries)
 
-## Basic conventions
-Components should be named based on their primary function.
-This repository includes a [sample Sass component](sample-component.scss) to use as a reference when building out a new component.
-
 ## CSV
 
-Our convention (which we call CSV or Component, Sub-Component, Variation) uses [BEM principles](https://en.bem.info/method/key-concepts/) to denote types of classes while still maintaining full use of the cascade.
+Our convention (which we call CSV or Component, Sub-Component, Variation) uses [BEM principles](https://en.bem.info/method/key-concepts/) to denote types of classes while still maintaining full use of the cascade. This repository includes a [sample Sass component](sample-component.scss) to use as a reference when building out a new component.
 
 > BEM stands for Block, Element, Modifier. Because Block and Element already have meaning in CSS, we use the terms Component, Sub-component instead. We also prefer the term variation to modifier.
 
@@ -47,7 +42,7 @@ Our convention (which we call CSV or Component, Sub-Component, Variation) uses [
 
 ### Components
 
-This is the base of the independent component that you are creating. Components should be able to exist on their own or within other components. They should always live at the root level of a Sass file.
+This is the base of the independent component that you are creating. Components should be able to exist on their own or within other components and should be named based on their primary function. They should always live at the root level of a Sass file.
 
 * Single hyphenated naming.
 * Not nested.

@@ -27,3 +27,5 @@ This allows us to keep components consistent with the design system, because the
 
 ## Creating a new mixin for your component
 Sometimes you will want to create new mixins to be used in a new component you are building. These mixins should be included at the top of the Sass file for the component. The mixin name should also be prefixed with the name of the component to help keep it name-spaced. An example can be seen in the [example component](../building-a-component/sample-component.scss) included in this repository.
+
+Continue on to [commenting →](../commenting)
