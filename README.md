@@ -1,6 +1,6 @@
-# Admin CSS guide
+# CSS
 
-This repository contains the guidelines for writing CSS and SCSS in the Shopify admin.
+This repository contains the guidelines for writing CSS and SCSS at Shopify.
 
 ## Table of contents
 
@@ -8,7 +8,6 @@ This repository contains the guidelines for writing CSS and SCSS in the Shopify 
   * [Tools and frameworks](introduction#tools-and-frameworks)
   * [Philosophy and structure](introduction#philosophy-and-structure)
 * [Building a component](building-a-component)
-  * [Basic conventions](building-a-component#basic-conventions)
   * [CSV](building-a-component#csv)
     * [Components](building-a-component#components)
     * [Sub-components](building-a-component#sub-components)
@@ -24,5 +23,9 @@ This repository contains the guidelines for writing CSS and SCSS in the Shopify 
 * [Using common styles with mixins](using-common-styles-with-mixins)
   * [Why mixins?](using-common-styles-with-mixins#why-mixins)
   * [Creating a new mixin for your component](using-common-styles-with-mixins#creating-a-new-mixin-for-your-component)
+* [Commenting](commenting)
+  * [Inline comments](commenting#inline-comments)
+  * [Block comments](commenting#block-comments)
+  * [Function comments](commenting#function-comments)
 
 Continue on to [the Introduction →](introduction#introduction)
