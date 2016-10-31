@@ -1,0 +1,4 @@
+up:
+  - ruby:
+      version: 2.3.0
+  - bundler
