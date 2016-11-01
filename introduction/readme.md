@@ -22,6 +22,4 @@ Two of the key things to keep in mind when developing are:
 1. Reusable components first
 2. Page specific only as a last resort
 
-For more specific information on our markup and CSS code styles see our [Markup and Styling Style Guide](https://github.com/Shopify/markup-and-styling-style-guide).
-
 Continue on to [Building a component →](../building-a-component)
