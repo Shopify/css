@@ -26,6 +26,7 @@ This repository contains the guidelines for writing CSS and SCSS at Shopify.
 * [Commenting](commenting)
   * [Inline comments](commenting#inline-comments)
   * [Block comments](commenting#block-comments)
-  * [Function comments](commenting#function-comments)
+  * [File comments](commenting#file-comments)
+  * [Function and mixin comments](commenting#function-and-mixin-comments)
 
 Continue on to [the Introduction →](introduction#introduction)
