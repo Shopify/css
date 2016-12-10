@@ -92,6 +92,7 @@ File comments (or poster comments as they are referred to in SassDoc) should be 
 /// This is a good file comment
 /// @group component/red-bull
 ////
+
 .red-bull {
   content: 'bull';
   color: red;
