@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [Conventions](#conventions)
-* [Component specific variables](#creating-new-variables-for-your-component)
+* [Creating new variables for your component](#creating-new-variables-for-your-component)
 
 ## Conventions
 Rather than using global variables, we prefer to use functions to retrieve values from a map. By doing it this way we it allows us to:
