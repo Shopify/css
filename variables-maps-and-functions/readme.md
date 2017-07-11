@@ -30,7 +30,7 @@ Rather than using global variables, we prefer to use functions to retrieve value
 // Bad!
 //
 // You should never fetch values from a map directly, use a function instead
-.body-text{
+.body-text {
   color: map-get($color-palette-data, black);
 }
 
