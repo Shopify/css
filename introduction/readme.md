@@ -11,7 +11,7 @@ This document outlines the concepts required to write Sass in our design system.
 
 * [Sass](http://sass-lang.com/) is our preprocessor of choice
 * [PostCSS](https://github.com/postcss/postcss) for its [Autoprefixer](https://github.com/postcss/autoprefixer) plugin
-* [SCSS-Lint](https://github.com/causes/scss-lint) is our preferred linter for `SCSS`. See our custom [linting rules](https://github.com/Shopify/css/blob/master/.scss-lint.yml) and plugins [linting rules](https://github.com/Shopify/css/blob/master/scss-lint-plugins)
+* [stylelint](https://github.com/stylelint/stylelint) is our preferred linter for `SCSS`'.  See our custom [linting rules](https://github.com/Shopify/stylelint-config-shopify)
 * [SassDoc](https://github.com/SassDoc/sassdoc) is our preferred form of documentation
 
 ## Philosophy and structure
