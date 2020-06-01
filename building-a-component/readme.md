@@ -1,4 +1,4 @@
-# Building a component
+# Component structure
 
 ## Table of contents
 * [CSV](#csv)

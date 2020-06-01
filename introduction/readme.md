@@ -1,26 +1,30 @@
 # Introduction
 
-This document outlines the concepts required to write Sass in our design system. Following this document ensures that everyone is writing markup and styling that feels familiar and can be maintained by anyone with little overhead.
+This document outlines the concepts required to write CSS at Shopify. We have a large development team, but our code shouldn't reflect that! In a perfect world, it should look like 1 crafter writes all our code. In a realistic world, using this document will help ensure that writing and reading CSS at Shopify feels consistent and familiar regardless of which team you are on.
 
-## Table of contents
+## In this section
 
 * [Tools and frameworks](#tools-and-frameworks)
 * [Philosophy and structure](#philosophy-and-structure)
 
 ## Tools and frameworks
 
-* [Sass](http://sass-lang.com/) is our preprocessor of choice
-* [PostCSS](https://github.com/postcss/postcss) for its [Autoprefixer](https://github.com/postcss/autoprefixer) plugin
-* [stylelint](https://github.com/stylelint/stylelint) is our preferred linter for `SCSS`'.  See our custom [linting rules](https://github.com/Shopify/stylelint-config-shopify)
-* [SassDoc](https://github.com/SassDoc/sassdoc) is our preferred form of documentation
+* Preprocessor: [Sass](http://sass-lang.com/)
+* Autoprefixer: [Autoprefixer](https://github.com/postcss/autoprefixer)
+* Linter: [stylelint](https://github.com/stylelint/stylelint) (1)
+* Documentation: [SassDoc](https://github.com/SassDoc/sassdoc) (2)
 
-## Philosophy and structure
+(1) See our [linting rules here](https://github.com/Shopify/web-foundation/tree/master/packages/stylelint-plugin).
+(2) Used for our Polaris documentation.
 
-We strive to write modular, component driven CSS that is reusable and has a clear separation of concerns. We want an accessible codebase that makes it easy for both newcomers and old-hands to understand, navigate, and change features.
+## Philosophy
 
-Two of the key things to keep in mind when developing are:
+We strive to write readable, reuseable CSS with clear separation of concerns. Like the UIs we are building, our code must be accessible to all crafters, no matter what their experience level.
 
-1. Reusable components first
-2. Page specific only as a last resort
+Key things to keep in mind when developing are:
 
-Continue on to [Building a component →](../building-a-component)
+1. Keep it reuseable: Build with and contribute to [Polaris](https://github.com/Shopify/polaris-react) if at all possible, otherwise, [create and share your own experimental pattern](https://docs.google.com/document/d/1p4mEiNQi0zPrcHWyGkTvbVQIuD5M4DjNky30M3z-YKM/edit). One-off or project-specific patterns should only be considered when your solution cannot be achieved by code and components that already exist.
+1. Keep it forward-thinking: If pre-existing patterns don't offer the best user experience, update them! We need crafters to contribute back to the system to keep it moving forward.
+2. Keep it accessible: Comment and document your code, so that other crafters understand why and how.
+
+Back to [Table of contents](TOC)
