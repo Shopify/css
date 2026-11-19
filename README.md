@@ -1,3 +1,6 @@
+> [!WARNING]
+> **This repository is no longer maintained.** It has been archived and receives no updates or security fixes.
+
 # CSS
 
 This repository contains the guidelines for writing CSS and SCSS at Shopify.
